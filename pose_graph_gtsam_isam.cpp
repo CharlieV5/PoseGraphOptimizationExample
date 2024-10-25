@@ -129,12 +129,11 @@ int main ( int argc, char** argv )
     gtsam::Values::shared_ptr initial ( new gtsam::Values ); // 初始值
 
     // SLAM过程,按照顺序增量添加观测
-#if(USE_ISAM)
+
     gtsam::ISAM2Params parameters;
     parameters.relinearizeThreshold = 0.01;
     parameters.relinearizeSkip = 1;
     gtsam::ISAM2 isam(parameters);
-#endif
 
     for(int i=0;i<pose_graph_poses.size();i++)
     {
